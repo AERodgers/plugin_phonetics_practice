@@ -1,0 +1,74 @@
+# Change Ini file
+# ========================
+# Written for Praat 6.0.40
+
+# script by Antoin Eoin Rodgers
+# rodgeran@tcd.ie
+# Phonetics and speech Laboratory, Trinity College Dublin
+# March 1, 2020
+
+# This script
+d# = {1, 1, 1, 1, 1}
+@changeIniShow: d#
+procedure changeIniShow: .displayFlags#
+    # .displayFlags#[1] <- show formant flag
+    # .displayFlags#[2] <- show intensity flag
+    # .displayFlags#[3] <- show pitch flag
+    # .displayFlags#[4] <- show pulses flag
+    # .displayFlags#[5] <- show spectrogram flag
+
+    # Define variables --------------------------------------------------------v
+    # identify platform (1 = Windows, 2 = Mac, 3 = Unix)
+    .platform = windows * 1 +  macintosh * 3 + unix * 3
+
+    # platform-based preference file names
+    .prefFile$[1] =  "Preferences5.ini"
+    .prefFile$[2] =  "Prefs5"
+    .prefFile$[3] =  "prefs5"
+
+    # Use backslash if in Windows, otherwise forward slash. (Windows is weird!)
+    if .platform - 1
+        .slash$ = "/"
+    else
+        .slash$ = "\"
+
+    # Find full address of preferences file on system.
+    .prefFileAddr$ =  preferencesDirectory$ + .slash$ + .prefFile$[.platform]
+
+    # Preference parameters to change
+    .show$[1] = "TimeSoundAnalysisEditor.formant.show: "
+    .show$[2] = "TimeSoundAnalysisEditor.intensity.show: "
+    .show$[3] = "TimeSoundAnalysisEditor.pitch.show: "
+    .show$[4] = "TimeSoundAnalysisEditor.pulses.show: "
+    .show$[5] = "TimeSoundAnalysisEditor.spectrogram.show: "
+    # -------------------------------------------------------------------------^
+
+    # Update preferences file -------------------------------------------------v
+    # Get current preferences file as list of strings
+    .prefFile$ = Read Strings from raw text file: .prefFileAddr$
+    exit
+    # Delete current preferences file
+    deleteFile: .prefFile$
+    .numLines = Get number of strings
+
+    # Re-write preferences file
+    for .i to .numLines
+        .curLine$ = Get string: .i
+        .appended = 0
+        # updated TimeSoundAnalysisEditor. ... .show parameter lines
+        for .j to 5
+            if left$(.curLine$, length(.curLine$) - 1) = .show$[.j]
+                appendFileLine: .prefFile$, .show$[.j] + .displayFlags#[.j]
+                .appended = 1
+            endif
+        endfor
+
+        # update all other lines
+        if ! .appended
+            appendFileLine: .prefFile$, .curLine$
+        endfor
+
+    endfor
+    # -------------------------------------------------------------------------^
+
+endproc
