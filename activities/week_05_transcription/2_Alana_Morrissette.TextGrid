@@ -1,0 +1,118 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 1.9466653325010839 
+tiers? <exists> 
+size = 3 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "orthography" 
+        xmin = 0 
+        xmax = 1.9466653325010839 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.19892666632263784 
+            text = "" 
+        intervals [2]:
+            xmin = 0.19892666632263784 
+            xmax = 1.516700412056309 
+            text = "Alana Morrissette (Yes, I know. Alana was a production error!)" 
+        intervals [3]:
+            xmin = 1.516700412056309 
+            xmax = 1.9466653325010839 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "answer" 
+        xmin = 0 
+        xmax = 1.9466653325010839 
+        intervals: size = 13 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.19892666632263784 
+            text = "" 
+        intervals [2]:
+            xmin = 0.19892666632263784 
+            xmax = 0.3810679354453809 
+            text = "l\|v" 
+        intervals [3]:
+            xmin = 0.3810679354453809 
+            xmax = 0.5399831366934118 
+            text = "a" 
+        intervals [4]:
+            xmin = 0.5399831366934118 
+            xmax = 0.587657697067821 
+            text = "n" 
+        intervals [5]:
+            xmin = 0.587657697067821 
+            xmax = 0.6267752850673363 
+            text = "\sw" 
+        intervals [6]:
+            xmin = 0.6267752850673363 
+            xmax = 0.728236528941079 
+            text = "m" 
+        intervals [7]:
+            xmin = 0.728236528941079 
+            xmax = 0.7979147325652156 
+            text = "\ab" 
+        intervals [8]:
+            xmin = 0.7979147325652156 
+            xmax = 0.894486277939019 
+            text = "\rt" 
+        intervals [9]:
+            xmin = 0.894486277939019 
+            xmax = 0.9372711398134889 
+            text = "\ic" 
+        intervals [10]:
+            xmin = 0.9372711398134889 
+            xmax = 1.077849971686747 
+            text = "s" 
+        intervals [11]:
+            xmin = 1.077849971686747 
+            xmax = 1.2123166804350807 
+            text = "\ep" 
+        intervals [12]:
+            xmin = 1.2123166804350807 
+            xmax = 1.516700412056309 
+            text = "\?g\lit\^h" 
+        intervals [13]:
+            xmin = 1.516700412056309 
+            xmax = 1.9466653325010839 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "comments" 
+        xmin = 0 
+        xmax = 1.9466653325010839 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.19892666632263784 
+            text = "" 
+        intervals [2]:
+            xmin = 0.19892666632263784 
+            xmax = 0.3810679354453809 
+            text = "no /\sw/ percept" 
+        intervals [3]:
+            xmin = 0.3810679354453809 
+            xmax = 0.7979147325652156 
+            text = "" 
+        intervals [4]:
+            xmin = 0.7979147325652156 
+            xmax = 0.894486277939019 
+            text = "lowering of F3" 
+        intervals [5]:
+            xmin = 0.894486277939019 
+            xmax = 1.2123166804350807 
+            text = "" 
+        intervals [6]:
+            xmin = 1.2123166804350807 
+            xmax = 1.516700412056309 
+            text = "glottal closure before stop" 
+        intervals [7]:
+            xmin = 1.516700412056309 
+            xmax = 1.9466653325010839 
+            text = "" 

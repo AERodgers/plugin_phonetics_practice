@@ -1,0 +1,73 @@
+#    C:\Users\rodge\Praat\plugin_phonetics_practice\activities\sawtooth
+
+procedure updateActivities
+    # UI - provide two options for entering folder
+    beginPause: "Anto's phonetic practice: Update activities"
+        comment: "How do you want to add a new activity folder?"
+    .edit_choice = endPause: "Paste/Type", "Folder Tree", 2
+    if .edit_choice = 2
+        .activityDir$ = chooseDirectory$: "Choose the new activity folder"
+    else
+        beginPause: "Anto's phonetic practice: Update activities"
+            comment: "Paste or type in the folder address"
+            sentence: "New activity folder", ""
+        endPause: "Continue", 1
+        .activityDir$ = new_activity_folder$
+    endif
+
+    .iAmValid = 1
+    if right$(.activityDir$, 1) = "/" or right$(.activityDir$, 1) = "\"
+        .activityDir$ = left$(.activityDir$, length(.activityDir$) - 1)
+    endif
+
+    # get activity proc name
+    .lastSlash = rindex (.activityDir$, "/")
+    if .lastSlash = 0
+        .lastSlash = rindex (.activityDir$, "\")
+    endif
+    .procName$ = right$(.activityDir$, length(.activityDir$) - .lastSlash)
+
+    # check if proc already exists
+    for .i to mainMenu.activities
+        if mainMenu.actProc$[.i] = .procName$
+        .iAmValid = 0
+        mainMenu.quit = 0
+        pauseScript: "The activity """, mainMenu.actTitle$[.i],
+            ... """ already exists"
+        endif
+    endfor
+
+    .activityProc$ = .activityDir$ + "/activity.proc"
+    if not fileReadable(.activityProc$)
+        .iAmValid = 0
+        mainMenu.quit = 0
+        pauseScript: "The folder you specified contains no valid activities."
+        endif
+    endif
+
+    if .iAmValid
+        createDirectory: "../activities/" + .procName$
+        .fileList = Create Strings as file list: "activityFiles", .activityDir$
+        .numFiles = Get number of strings
+        for .i to .numFiles
+            selectObject: .fileList
+            .curFile$ = Get string: .i
+            .targetAddress$ = "../activities/" + .procName$ + "/" + .curFile$
+            .curAddress$ = .activityDir$ + "/" + .curFile$
+            if right$(.curFile$, 3) = "wav"
+                .curFile = Read from file: .curAddress$
+                Save as WAV file: .targetAddress$
+            else
+                .curFile = Read Strings from raw text file: .curAddress$
+                .numLines = Get number of strings
+                for .j to .numLines
+                    .curLine$ = Get string: .j
+                    appendFileLine: .targetAddress$, .curLine$
+                endfor
+            endif
+            removeObject: .curFile
+        endfor
+        removeObject: .fileList
+        pauseScript: "Re-start Praat for the changes to take effect."
+    endif
+endproc

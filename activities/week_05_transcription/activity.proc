@@ -1,0 +1,18 @@
+#metadataValid
+#Transcription Practice Week 5
+#week_05_transcription
+
+# Transcription Practice for UL Week 5
+#
+# rodgeran@tcd.ie
+# Phonetics and speech Laboratory, Trinity College Dublin
+# Feb 17, 2020
+#
+# A series of 5 phrases with varying degrees of connected speech and
+# allophonic variation requiring diacritics.
+
+
+procedure week_05_transcription
+    @showHideAns: "../activities/week_05_transcription/"
+    pauseScript: "You have looked at all the sound files."
+endproc

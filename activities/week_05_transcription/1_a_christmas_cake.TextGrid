@@ -1,0 +1,134 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 1.1395831599188149 
+tiers? <exists> 
+size = 3 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "orthography" 
+        xmin = 0 
+        xmax = 1.1395831599188149 
+        intervals: size = 4 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.06206579718570418 
+            text = "" 
+        intervals [2]:
+            xmin = 0.06206579718570418 
+            xmax = 0.9465606069225573 
+            text = "A christmas cake" 
+        intervals [3]:
+            xmin = 0.9465606069225573 
+            xmax = 1.0911139657954085 
+            text = "-" 
+        intervals [4]:
+            xmin = 1.0911139657954085 
+            xmax = 1.1395831599188149 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "answer" 
+        xmin = 0 
+        xmax = 1.1395831599188149 
+        intervals: size = 16 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.06206579718570418 
+            text = "" 
+        intervals [2]:
+            xmin = 0.06206579718570418 
+            xmax = 0.08639656056034253 
+            text = "\sw" 
+        intervals [3]:
+            xmin = 0.08639656056034253 
+            xmax = 0.18801327818383215 
+            text = "k" 
+        intervals [4]:
+            xmin = 0.18801327818383215 
+            xmax = 0.2180689270583854 
+            text = "\^h" 
+        intervals [5]:
+            xmin = 0.2180689270583854 
+            xmax = 0.28390511030740684 
+            text = "\rt\0v\li\rt" 
+        intervals [6]:
+            xmin = 0.28390511030740684 
+            xmax = 0.32040125536936437 
+            text = "\ic" 
+        intervals [7]:
+            xmin = 0.32040125536936437 
+            xmax = 0.43132091193021566 
+            text = "s" 
+        intervals [8]:
+            xmin = 0.43132091193021566 
+            xmax = 0.49214782036681154 
+            text = "m\li\0vm" 
+        intervals [9]:
+            xmin = 0.49214782036681154 
+            xmax = 0.5207722478663861 
+            text = "\sw" 
+        intervals [10]:
+            xmin = 0.5207722478663861 
+            xmax = 0.6095079731150671 
+            text = "s" 
+        intervals [11]:
+            xmin = 0.6095079731150671 
+            xmax = 0.7240056831133652 
+            text = "k\^h" 
+        intervals [12]:
+            xmin = 0.7240056831133652 
+            xmax = 0.8492375534240039 
+            text = "e\ic" 
+        intervals [13]:
+            xmin = 0.8492375534240039 
+            xmax = 0.9272391183603445 
+            text = "k" 
+        intervals [14]:
+            xmin = 0.9272391183603445 
+            xmax = 0.9465606069225573 
+            text = "\^h" 
+        intervals [15]:
+            xmin = 0.9465606069225573 
+            xmax = 1.0911139657954085 
+            text = "breath!" 
+        intervals [16]:
+            xmin = 1.0911139657954085 
+            xmax = 1.1395831599188149 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "comments" 
+        xmin = 0 
+        xmax = 1.1395831599188149 
+        intervals: size = 7 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.18801327818383215 
+            text = "" 
+        intervals [2]:
+            xmin = 0.18801327818383215 
+            xmax = 0.2180689270583854 
+            text = "?" 
+        intervals [3]:
+            xmin = 0.2180689270583854 
+            xmax = 0.49214782036681154 
+            text = "see extIPA for partial devoicing alternative " 
+        intervals [4]:
+            xmin = 0.49214782036681154 
+            xmax = 0.7240056831133652 
+            text = "" 
+        intervals [5]:
+            xmin = 0.7240056831133652 
+            xmax = 0.8492375534240039 
+            text = "very short. /e/ slightly lowered" 
+        intervals [6]:
+            xmin = 0.8492375534240039 
+            xmax = 0.9465606069225573 
+            text = "" 
+        intervals [7]:
+            xmin = 0.9465606069225573 
+            xmax = 1.1395831599188149 
+            text = "" 

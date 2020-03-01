@@ -1,0 +1,146 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 1.6441521388835874 
+tiers? <exists> 
+size = 3 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "orthography" 
+        xmin = 0 
+        xmax = 1.6441521388835874 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.07715693086525723 
+            text = "" 
+        intervals [2]:
+            xmin = 0.07715693086525723 
+            xmax = 1.4998853757141375 
+            text = "He leant me the pliers" 
+        intervals [3]:
+            xmin = 1.4998853757141375 
+            xmax = 1.6441521388835874 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "answer" 
+        xmin = 0 
+        xmax = 1.6441521388835874 
+        intervals: size = 18 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.07715693086525723 
+            text = "" 
+        intervals [2]:
+            xmin = 0.07715693086525723 
+            xmax = 0.14839659900355387 
+            text = "h" 
+        intervals [3]:
+            xmin = 0.14839659900355387 
+            xmax = 0.19692217005427765 
+            text = "i" 
+        intervals [4]:
+            xmin = 0.19692217005427765 
+            xmax = 0.30016806590688144 
+            text = "l" 
+        intervals [5]:
+            xmin = 0.30016806590688144 
+            xmax = 0.38999199529864675 
+            text = "\ep" 
+        intervals [6]:
+            xmin = 0.38999199529864675 
+            xmax = 0.4457447790590528 
+            text = "n" 
+        intervals [7]:
+            xmin = 0.4457447790590528 
+            xmax = 0.4994326449024068 
+            text = "\?g" 
+        intervals [8]:
+            xmin = 0.4994326449024068 
+            xmax = 0.5510555928287086 
+            text = "m" 
+        intervals [9]:
+            xmin = 0.5510555928287086 
+            xmax = 0.6305549326352136 
+            text = "i" 
+        intervals [10]:
+            xmin = 0.6305549326352136 
+            xmax = 0.6821778805615154 
+            text = "\dh" 
+        intervals [11]:
+            xmin = 0.6821778805615154 
+            xmax = 0.7141841082758227 
+            text = "\sw" 
+        intervals [12]:
+            xmin = 0.7141841082758227 
+            xmax = 0.8148472797532628 
+            text = "p" 
+        intervals [13]:
+            xmin = 0.8148472797532628 
+            xmax = 0.8535688070514496 
+            text = "\^h" 
+        intervals [14]:
+            xmin = 0.8535688070514496 
+            xmax = 0.8989942618519834 
+            text = "l" 
+        intervals [15]:
+            xmin = 0.8989942618519834 
+            xmax = 1.1034211356401389 
+            text = "a\ic" 
+        intervals [16]:
+            xmin = 1.1034211356401389 
+            xmax = 1.266549651087253 
+            text = "\rt" 
+        intervals [17]:
+            xmin = 1.266549651087253 
+            xmax = 1.4998853757141375 
+            text = "z\0v" 
+        intervals [18]:
+            xmin = 1.4998853757141375 
+            xmax = 1.6441521388835874 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "comments" 
+        xmin = 0 
+        xmax = 1.6441521388835874 
+        intervals: size = 9 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.07715693086525723 
+            text = "" 
+        intervals [2]:
+            xmin = 0.07715693086525723 
+            xmax = 0.4457447790590528 
+            text = "" 
+        intervals [3]:
+            xmin = 0.4457447790590528 
+            xmax = 0.4994326449024068 
+            text = "[t\cn] ?" 
+        intervals [4]:
+            xmin = 0.4994326449024068 
+            xmax = 0.7141841082758227 
+            text = "" 
+        intervals [5]:
+            xmin = 0.7141841082758227 
+            xmax = 0.8989942618519834 
+            text = "asp. or devoiced lateral onset?" 
+        intervals [6]:
+            xmin = 0.8989942618519834 
+            xmax = 1.1034211356401389 
+            text = "" 
+        intervals [7]:
+            xmin = 1.1034211356401389 
+            xmax = 1.266549651087253 
+            text = "F3" 
+        intervals [8]:
+            xmin = 1.266549651087253 
+            xmax = 1.4998853757141375 
+            text = "phrase final devoicing" 
+        intervals [9]:
+            xmin = 1.4998853757141375 
+            xmax = 1.6441521388835874 
+            text = "" 

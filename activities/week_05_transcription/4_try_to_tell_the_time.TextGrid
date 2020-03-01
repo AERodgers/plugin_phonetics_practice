@@ -1,0 +1,102 @@
+File type = "ooTextFile"
+Object class = "TextGrid"
+
+xmin = 0 
+xmax = 1.7608428942849201 
+tiers? <exists> 
+size = 3 
+item []: 
+    item [1]:
+        class = "IntervalTier" 
+        name = "orthography" 
+        xmin = 0 
+        xmax = 1.7608428942849201 
+        intervals: size = 3 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.06715270354678478 
+            text = "" 
+        intervals [2]:
+            xmin = 0.06715270354678478 
+            xmax = 1.6096542634597242 
+            text = "try to tell the time" 
+        intervals [3]:
+            xmin = 1.6096542634597242 
+            xmax = 1.7608428942849201 
+            text = "" 
+    item [2]:
+        class = "IntervalTier" 
+        name = "answers" 
+        xmin = 0 
+        xmax = 1.7608428942849201 
+        intervals: size = 15 
+        intervals [1]:
+            xmin = 0 
+            xmax = 0.06715270354678478 
+            text = "" 
+        intervals [2]:
+            xmin = 0.06715270354678478 
+            xmax = 0.15229436671043808 
+            text = "t\T)" 
+        intervals [3]:
+            xmin = 0.15229436671043808 
+            xmax = 0.22527293513642663 
+            text = "\rt\0v\li\rt" 
+        intervals [4]:
+            xmin = 0.22527293513642663 
+            xmax = 0.4088250920866402 
+            text = "a\ic" 
+        intervals [5]:
+            xmin = 0.4088250920866402 
+            xmax = 0.4972839629060203 
+            text = "t\^h" 
+        intervals [6]:
+            xmin = 0.4972839629060203 
+            xmax = 0.5238216241518343 
+            text = "\sw" 
+        intervals [7]:
+            xmin = 0.5238216241518343 
+            xmax = 0.7129024605282591 
+            text = "t\^h" 
+        intervals [8]:
+            xmin = 0.7129024605282591 
+            xmax = 0.8113129543148193 
+            text = "\ep" 
+        intervals [9]:
+            xmin = 0.8113129543148193 
+            xmax = 0.9097234481013796 
+            text = "\l~" 
+        intervals [10]:
+            xmin = 0.9097234481013796 
+            xmax = 0.9915479036093062 
+            text = "\dh" 
+        intervals [11]:
+            xmin = 0.9915479036093062 
+            xmax = 1.0413060184452074 
+            text = "\sw" 
+        intervals [12]:
+            xmin = 1.0413060184452074 
+            xmax = 1.210483608887272 
+            text = "t\^h" 
+        intervals [13]:
+            xmin = 1.210483608887272 
+            xmax = 1.475860221345412 
+            text = "a\ic" 
+        intervals [14]:
+            xmin = 1.475860221345412 
+            xmax = 1.6096542634597242 
+            text = "m" 
+        intervals [15]:
+            xmin = 1.6096542634597242 
+            xmax = 1.7608428942849201 
+            text = "" 
+    item [3]:
+        class = "IntervalTier" 
+        name = "comments" 
+        xmin = 0 
+        xmax = 1.7608428942849201 
+        intervals: size = 1 
+        intervals [1]:
+            xmin = 0 
+            xmax = 1.7608428942849201 
+            text = "" 
