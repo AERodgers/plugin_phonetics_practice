@@ -19,18 +19,14 @@ NOTE: This is the first version of this plugin, which only includes two simple a
 * A demonstration of how a complex waveform (sawtooth) can be understood as a combination of component (sinusoidal) parts
 * A connected speech transcription / segmentation task.
 
-I will add more features for educators to build their own activities
+I will add more activities over time.
+
+I will also add activity templates and features for educators to build their own activities. For now, however, I am mostly concerned with the user experience from the learner's perspective rather than the educator's.
 
 ___
 
-The plugin is free software: you can redistribute it and/or modify it under the
-terms of the GNU General Public License as published by the Free Software
-Foundation, either version 3 of the License, or (at your option) any later
-version.
+The plugin is free software: you can redistribute it and/or modify it under the terms of the GNU General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.
 
-The plugin is distributed in the hope that it will be useful, but WITHOUT ANY
- WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
- A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+The plugin is distributed in the hope that it will be useful, but WITHOUT ANY  WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE. See the GNU General Public License for more details.
 
-You should have received a copy of the GNU General Public License along with
-BatchHTK_edit. If not, see <http://www.gnu.org/licenses/>.
+You should have received a copy of the GNU General Public License along with BatchHTK_edit. If not, see <http://www.gnu.org/licenses/>.

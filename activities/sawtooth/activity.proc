@@ -52,7 +52,7 @@ procedure sawtooth
 
     # DRAW AND / OR PLAY SOUNDS -----------------------------------------------v
     # draw and play individual sinusoids
-    @drawImage: .concat, 4, 0.2, 0, 0, 0.5,  "sinusoids played in sequence"
+    @drawImage: .concat, 6, 0.2, 0, 0, 0.5,  "sinusoids played in sequence"
     # Save as 600-dpi PNG file: "sinusoids_in_sequence.png"
     @listenContinue: "Sinusoids in sequence", .concat
 
@@ -62,16 +62,15 @@ procedure sawtooth
     @listenContinue: "All waveforms together (stereo)", .multiWave
 
     # draw and play sawtooth waveform
-    @drawImage: .singleWave, 4, 0.02,  20/.f0, 25/.f0, 0.1,
+    @drawImage: .singleWave, 6, 0.02,  20/.f0, 25/.f0, 0.1,
             ... "sinusoids combined (sawtooth)"
     # Save as 600-dpi PNG file: "sawtooth_waveform.png"
     @listenContinue: "Sawtooth waveform (mono)", .singleWave
 
     # draw spectrum of sawtooth
-    @drawSpectrum: .singleWave, 4, "Sawtooth waveform"
+    @drawSpectrum: .singleWave, 6, "Sawtooth waveform"
     #Save as 600-dpi PNG file: "sawtooth_spectrum.png"
     @listenContinue: "Spectrum of sawtooth waveform", .singleWave
-
 
     # option to clear objects window
     .objects#[11] = .singleWave
@@ -86,7 +85,7 @@ endproc
 procedure drawSpectrum: .sound, .sizeMultiple, .title$
     # Set up picture environment
     Erase all
-    Select outer viewport: 0, .sizeMultiple*16/9, 0, .sizeMultiple
+    Select outer viewport: 0, .sizeMultiple, 0, .sizeMultiple/16*9
     Black
     Courier
     12
@@ -119,7 +118,7 @@ endproc
 procedure drawMultiWave: .sound, .f0, .harmonics
     # Set up picture environment
     Erase all
-    Select outer viewport: 0, 4.5, 0, 8
+    Select outer viewport: 0, 4.5, 0, 6
     Black
     Courier
     12
@@ -147,7 +146,7 @@ procedure drawImage: .sound, .sizeMultiple, .timeMark, .start, .end, .absInt,
         ... .title$
     # Set up picture environment
     Erase all
-    Select outer viewport: 0, .sizeMultiple*16/9, 0, .sizeMultiple
+    Select outer viewport: 0, .sizeMultiple, 0, .sizeMultiple/16*9
     Black
     Courier
     12
@@ -155,7 +154,7 @@ procedure drawImage: .sound, .sizeMultiple, .timeMark, .start, .end, .absInt,
     Line width: 1
 
     # Draw waveform
-    Select outer viewport: 0, .sizeMultiple*16/9, 0, 1.8
+    Select outer viewport: 0, .sizeMultiple, 0, 1.8
     Draw inner box
     selectObject: .sound
     Draw: .start, .end, -.absInt, .absInt, "no", "Curve"
@@ -168,20 +167,20 @@ procedure drawImage: .sound, .sizeMultiple, .timeMark, .start, .end, .absInt,
     .spectrogram = To Spectrogram: 0.03, 5000, 0.002, 20, "Gaussian"
 
     # Draw spectrogram
-    Select outer viewport: 0, .sizeMultiple*16/9, 1, .sizeMultiple
+    Select outer viewport: 0, .sizeMultiple, 1, .sizeMultiple/16*9
     Paint: .start, .end,  0, 0, 100, "yes", 50, 6, 0, "no"
 
     # Draw borders and text
     Draw inner box
     Line width: 2
-    Marks left every: 1000, 0.5, "yes", "yes", "yes"
+    Marks left every: 1000, 1, "yes", "yes", "yes"
     Marks bottom every: 1, .timeMark * 5, "yes", "yes", "yes"
     Line width: 1
-    Marks left every: 1000, 0.1, "no", "yes", "no"
+    Marks left every: 1000, 0.2, "no", "yes", "no"
     Marks bottom every: 1, .timeMark, "no", "yes", "no"
     Text left: "yes", "Frequency (kHz)"
     Text bottom: "yes", "Time (secs)"
-    Select outer viewport: 0, .sizeMultiple*16/9, 0, .sizeMultiple
+    Select outer viewport: 0, .sizeMultiple, 0, .sizeMultiple/16*9
     14
     Text top: "yes", "##Waveform & spectrogram of " + .title$
     10

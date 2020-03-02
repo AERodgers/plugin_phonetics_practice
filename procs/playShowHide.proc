@@ -122,5 +122,3 @@ procedure playShowHide: .directory$, .listenRepeat
     plusObject: .textgridList
     Remove
 endproc
-
-# Dependent Procedures --------------------------------------------------------v

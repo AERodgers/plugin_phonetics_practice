@@ -23,7 +23,9 @@ procedure mainMenu: .activities
         endif
 
         beginPause: "Anto's phonetic practice"
-            choose_activity = 1
+            if !variableExists("choose_activity")
+                choose_activity = 1
+            endif
             comment: "Main menu"
             comment: "What do you want to do?"
                 if .activities > 0
@@ -43,6 +45,7 @@ procedure mainMenu: .activities
             .quit = 1
             beginPause: "Bye bye"
             endPause: "Bye bye", 1, 1
+            writeInfoLine()
        elsif edit_choice = 2
             .quit = 1
             @updateActivities
