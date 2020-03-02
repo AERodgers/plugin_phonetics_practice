@@ -1,0 +1,109 @@
+# Textgrid management
+
+procedure temp_textgrid: .original$, .delete_list$
+    # convert .delete_list$ to array of tiers to delete
+    # (.delete$[.n] with .n elements)
+
+    .list_length = length(.delete_list$)
+    .n = 1
+    .prev_start = 1
+    for .i to .list_length
+        .char$ = mid$(.delete_list$, .i, 1)
+        if .char$ = " "
+            .delete$[.n] = mid$(.delete_list$, .prev_start, .i - .prev_start)
+            .n += 1
+            .prev_start = .i + 1
+        endif
+
+        if .n = 1
+            .delete$[.n] = .delete_list$
+        else
+            .delete$[.n] = mid$(.delete_list$,
+                            ... .prev_start,
+                            ... .list_length - .prev_start + 1)
+        endif
+    endfor
+
+    # create a copy of '.original$' and delete target tiers
+    selectObject: '.original$'
+    .num_tiers = Get number of tiers
+    .name$ = selected$("TextGrid")
+    .name$ += "_temp"
+    Copy: .name$
+    .object = selected ()
+    for .i to .num_tiers
+        .cur_tier = .num_tiers + 1 - .i
+        .name_cur$ = Get tier name: .cur_tier
+        for .j to .n
+            if .delete$[.j] = .name_cur$
+                Remove tier: .cur_tier
+            endif
+        endfor
+    endfor
+endproc
+
+
+procedure merge_textgrids
+    ### get number of and list of original and temporary tiers
+    selectObject: temp_textgrid.object
+    .temp_n_tiers = Get number of tiers
+    for .i to .temp_n_tiers
+        .temp_tier$[.i] = Get tier name: .i
+    endfor
+    selectObject: 'temp_textgrid.original$'
+    .orig_n_tiers = Get number of tiers
+    .name$ = selected$("TextGrid")
+    for .i to .orig_n_tiers
+        .orig_tier$[.i] = Get tier name: .i
+    endfor
+
+    ### create 1st tier of merged tier
+    selectObject: 'temp_textgrid.original$'
+    Extract one tier: 1
+    .new = selected()
+    if .orig_tier$[1] = .temp_tier$[1]
+        selectObject: temp_textgrid.object
+        Extract one tier: 1
+        .temp_single_tier = selected ()
+        plusObject: .new
+        Merge
+        .newNew =selected()
+        Remove tier: 1
+        selectObject: .temp_single_tier
+        plusObject: .new
+        Remove
+        .new = .newNew
+    endif
+
+    ### merge tiers 2 to .orig_n_tiers
+    for .i from 2 to .orig_n_tiers
+        .useTemp = 0
+        for .j to .temp_n_tiers
+            if .orig_tier$[.i] =  .temp_tier$[.j]
+                .useTemp = .j
+            endif
+        endfor
+        if .useTemp
+            selectObject: temp_textgrid.object
+            Extract one tier: .useTemp
+
+        else
+            selectObject: 'temp_textgrid.original$'
+            Extract one tier: .i
+        endif
+        .temp_single_tier = selected ()
+        plusObject: .new
+        Merge
+        .newNew =selected()
+        selectObject: .temp_single_tier
+        plusObject: .new
+        Remove
+        .new = .newNew
+    endfor
+    selectObject: 'temp_textgrid.original$'
+    plusObject: temp_textgrid.object
+    Remove
+    'temp_textgrid.original$' = .new
+    selectObject: 'temp_textgrid.original$'
+    Rename: .name$
+endproc

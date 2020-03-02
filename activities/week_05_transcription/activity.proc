@@ -13,6 +13,51 @@
 
 
 procedure week_05_transcription
+    l$ = newline$
+    # NB: create a less ridiculous "@instructions" procedure!
+    writeInfoLine:  "Week 05 transcription practice"  +
+    ... l$ +  "------------------------------" +
+    ... l$ + "You will hear a series of short phrases (5 in total)." +
+    ... l$ + "Listen to each phrase a number of times by clicking [Play]." +
+    ... l$ + "Write an allophonic transciption which also any captures" +
+    ... l$ + "salient features of connented speech" +
+    ... l$ + "" +
+    ... l$ + "Diacritics for devoicing and unreleased plosives may be" +
+    ... l$ + "particularly helpful." +
+    ... l$ + "" +
+    ... l$ + "After writing your transcription, click on [Next]." +
+    ... l$ + "" +
+    ... l$ + "You will be able to inspect the spectrogram for the phrase." +
+    ... l$ + "This might be useful for checking some of your impressions." +
+    ... l$ + "If you wish, you can use the ""My transcription"" tier to" +
+    ... l$ + "segment and write your transcription (but this is not" +
+    ... l$ + "necessary)" +
+    ... l$ + "Click on [show answer] to see my segmentation, transcription," +
+    ... l$ + "and comments. As always, if you have any queries or" +
+    ... l$ + "corrections, do let me know."
+
+    beginPause: "Instructions"
+    comment: "You will hear a series of short phrases (5 in total)."
+    comment: "Listen to each phrase a number of times by clicking [Play]."
+    comment: "Write an allophonic transciption which also any captures " +
+        ...  "salient features of connented speech"
+    comment: ""
+    comment: "Diacritics for devoicing and unreleased plosives may be " +
+         ... "particularly helpful."
+    comment: ""
+    comment: "After writing your transcription, click on [Next]."
+    comment: ""
+    comment: "You will be able to inspect the spectrogram for the phrase. " +
+         ... "This might be useful for checking some of"
+    comment: "your impressions."
+    comment: "If you wish, you can use the ""mySegmentation"" tier to " +
+         ... "segment and write your transcription (but this is"
+    comment: "not necessary)."
+    comment: "Click on [show answer] to see my segmentation, transcription, " +
+         ... "and comments."
+    comment: "As always, if you have any queries or correction, do let me know."
+    endPause: "Begin", 1, 1
+
     .pauseToListen =  1
     @playShowHide: "../activities/week_05_transcription/", .pauseToListen
     beginPause:"All done"

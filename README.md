@@ -16,6 +16,21 @@ the objects window. It will show up as **Anto's Phonetics Practice...**
 
 NOTE: This is the first version of this plugin, which only includes two simple activities:
 
-    * A demonstration of how a complex waveform (sawtooth) can be understood as a combination of component (sinusoidal) parts
-    * A connected speech transcription / segmentation task.
-. I will add more features for educators to build their own activities
+* A demonstration of how a complex waveform (sawtooth) can be understood as a combination of component (sinusoidal) parts
+* A connected speech transcription / segmentation task.
+
+I will add more features for educators to build their own activities
+
+___
+
+The plugin is free software: you can redistribute it and/or modify it under the
+terms of the GNU General Public License as published by the Free Software
+Foundation, either version 3 of the License, or (at your option) any later
+version.
+
+The plugin is distributed in the hope that it will be useful, but WITHOUT ANY
+ WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR
+ A PARTICULAR PURPOSE. See the GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License along with
+BatchHTK_edit. If not, see <http://www.gnu.org/licenses/>.

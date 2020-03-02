@@ -64,6 +64,23 @@ procedure listenContinue: .heading$, .sound
     endif
 endproc
 
+procedure listenRepeat: .soundObject
+    .plxRepeat = 1
+    selectObject: .soundObject
+    .soundName$ = selected$("Sound")
+    while .plxRepeat
+        beginPause: "Sound: " + .soundName$
+        comment: "Listen to the phrase"
+        .plxRepeat = endPause: "Play", "Next", 1, 1
+        .plxRepeat = -.plxRepeat + 2
+        if .plxRepeat
+            selectObject: .soundObject
+            Play
+        endif
+    endwhile
+endproc
+
+
 procedure keepClear: .objects#, .text$
     beginPause: "Keep or Clear the objects window"
         comment: "Do you want to keep anything from """ + .text$ + """"

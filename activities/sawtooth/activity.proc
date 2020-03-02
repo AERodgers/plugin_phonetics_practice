@@ -12,7 +12,7 @@
 # Feb 17, 2020
 #
 # This script was written to exemplify how complex waveforms can be understood
-# as the sum of sinusoidal waveforms.
+# as being composed of the sum of a series sinusoidal waveforms.
 
 # main procedure
 procedure sawtooth
