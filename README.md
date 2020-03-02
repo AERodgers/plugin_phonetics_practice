@@ -9,10 +9,9 @@ Then:
 3. Copy the **plugin_phonetics_practice** folder and *all* its contents into
  the **Praat preferences directory**.
 
-    ([Click on this link](http://www.fon.hum.uva.nl/praat/manual/preferences_directory.html) to find guidelines on how to locate this directory on your computer.)
+    ([Click on this link](http://www.fon.hum.uva.nl/praat/manual/preferences_directory.html) for guidelines on how to locate this directory on your computer.)
 
-Once you have installed the plugin, it can be access from the **Praat** menu in
-the objects window. It will show up as **Anto's Phonetics Practice...**
+Once you have installed the plugin, you can access it from the **Praat** menu in the objects window. It will show up as **Anto's Phonetics Practice...**
 
 NOTE: This is the first version of this plugin, which only includes two simple activities:
 
