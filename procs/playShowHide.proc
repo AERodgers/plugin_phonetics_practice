@@ -85,7 +85,7 @@ procedure playShowHide: .directory$, .listenRepeat
             endif
 
             Edit
-            # pause to let user edit the text gtid
+            # pause to let user edit the text grid
             beginPause: "Showing " + .soundName$
             comment: "Play, listen, and write your transcription."
             .editChoice = endPause: .showAns$[.showAns + 1], "<", ">", 4, 1

@@ -36,9 +36,15 @@ appendInfoLine: "Keep an eye on it!"
 
 @mainMenu: validActs
 
-# include the following procs
+# Base Procedures -------------------------------------------------------------v
+include ../procs/changeIni.proc
+include ../procs/changeIniShow.proc
 include ../procs/menus.proc
-include ../procs/updateActivities.proc
 include ../procs/playShowHide.proc
+include ../procs/updateActivities.proc
+# -----------------------------------------------------------------------------v^
+
+# Activities ------------------------------------------------------------------v
 include ../activities/sawtooth/activity.proc
 include ../activities/week_05_transcription/activity.proc
+# -----------------------------------------------------------------------------v^

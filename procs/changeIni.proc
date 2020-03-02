@@ -7,9 +7,11 @@
 # Phonetics and speech Laboratory, Trinity College Dublin
 # March 1, 2020
 
-# This script
-d# = {1, 1, 1, 1, 1}
-@changeIniShow: d#
+# This script chages the ini file for Praat
+
+# example
+#d# = {1, 1, 1, 1, 1}
+#@changeIniShow: d#
 procedure changeIniShow: .displayFlags#
     # .displayFlags#[1] <- show formant flag
     # .displayFlags#[2] <- show intensity flag

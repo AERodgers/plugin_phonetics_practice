@@ -5,10 +5,11 @@ Add menu command: "Objects",
               ... 0,
               ... "scripts/phonetics_practice.praat"
 
-# Build include lines ---------------------------------------------------------v
+
+# Build activity include lines ------------------------------------------------v
 # Set define initial variables
 validActs = 0
-activities = Create Strings as directory list: "directoryList", "activities"
+activities = Create Strings as directory list: "activities", "activities"
 numActivities = Get number of strings
 activitiesTable = Create Table with column names: "activities", 0, "proc title"
 # find all valid activities
@@ -49,30 +50,44 @@ Save as tab-separated file: "scripts/activities.Table"
 removeObject: activitiesTable
 removeObject: activities
 
+# generate base phonetics_practice.praat script -------------------------------v
 # get original script
 origScript =  Read Strings from raw text file: "scripts/original_script.praat"
 numLines = Get number of strings
-
-# generate phonetics_practice.praat script
 finalScript$ = "scripts/phonetics_practice.praat"
 curLine$ = Get string: 1
 writeFileLine: finalScript$, "# define number of valid activities"
 appendFileLine: finalScript$, "validActs = 'validActs'"
+
 for i to numLines
     curLine$ = Get string: i
     appendFileLine: finalScript$, curLine$
 endfor
 removeObject: origScript
+# -----------------------------------------------------------------------------^
 
-# include default procedures
+# Add "include" lines to the phonetics_practice.praat script ------------------v
 appendFileLine: finalScript$, ""
-appendFileLine: finalScript$, "# include the following procs"
-appendFileLine: finalScript$, "include ../procs/menus.proc"
-appendFileLine: finalScript$, "include ../procs/updateActivities.proc"
-appendFileLine: finalScript$, "include ../procs/playShowHide.proc"
+appendFileLine: finalScript$, "# Base Procedures ----------------------------" +
+                          ... "---------------------------------v"
+procs = Create Strings as file list: "procs", "procs"
+numProcs = Get number of strings
+for i to numProcs
+    curProc$ = Get string: i
+    appendFileLine: finalScript$, "include ../procs/" + curProc$
+endfor
+
+removeObject: procs
+appendFileLine: finalScript$, "# --------------------------------------------" +
+                          ... "---------------------------------v^"
 
 # append activity procedure scripts
+appendFileLine: finalScript$, ""
+appendFileLine: finalScript$, "# Activities ---------------------------------" +
+                          ... "---------------------------------v"
 for i to validActs
-    appendFileLine:  "scripts/phonetics_practice.praat", newLine$[i]
+    appendFileLine:  finalScript$, newLine$[i]
 endfor
+appendFileLine: finalScript$, "# --------------------------------------------" +
+                          ... "---------------------------------v^"
 # -----------------------------------------------------------------------------^

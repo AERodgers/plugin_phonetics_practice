@@ -82,7 +82,7 @@ procedure playShowHide: .directory$
             # pause to let user edit the text gtid
             beginPause: "Showing " + .soundName$
             comment: "Play, listen, and write your transcription."
-            .editChoice = endPause: .showAns$[.showAns + 1], "<", ">", 4
+            .editChoice = endPause: .showAns$[.showAns + 1], "<", ">", 4, 1
 
             # Merged textgrid if necessary, and save it.
             if not .showAns

@@ -15,5 +15,7 @@
 procedure week_05_transcription
     .pauseToListen =  1
     @playShowHide: "../activities/week_05_transcription/", .pauseToListen
-    pauseScript: "You have looked at all the sound files."
+    beginPause:"All done"
+    comment: "You have looked at all the sound files."
+    endPause: "Continue", 1, 1
 endproc

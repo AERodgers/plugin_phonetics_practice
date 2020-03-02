@@ -41,8 +41,9 @@ procedure mainMenu: .activities
         endif
         if edit_choice = 1
             .quit = 1
-            pauseScript: "Bye bye"
-        elsif edit_choice = 2
+            beginPause: "Bye bye"
+            endPause: "Bye bye", 1, 1
+       elsif edit_choice = 2
             .quit = 1
             @updateActivities
         else

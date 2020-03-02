@@ -4,14 +4,14 @@ procedure updateActivities
     # UI - provide two options for entering folder
     beginPause: "Anto's phonetic practice: Update activities"
         comment: "How do you want to add a new activity folder?"
-    .edit_choice = endPause: "Paste/Type", "Folder Tree", 2
+    .edit_choice = endPause: "Paste/Type", "Folder Tree", 2, 1
     if .edit_choice = 2
         .activityDir$ = chooseDirectory$: "Choose the new activity folder"
     else
         beginPause: "Anto's phonetic practice: Update activities"
             comment: "Paste or type in the folder address"
             sentence: "New activity folder", ""
-        endPause: "Continue", 1
+        endPause: "Cancel", "Continue", 2
         .activityDir$ = new_activity_folder$
     endif
 
@@ -30,10 +30,12 @@ procedure updateActivities
     # check if proc already exists
     for .i to mainMenu.activities
         if mainMenu.actProc$[.i] = .procName$
-        .iAmValid = 0
-        mainMenu.quit = 0
-        pauseScript: "The activity """, mainMenu.actTitle$[.i],
-            ... """ already exists"
+            .iAmValid = 0
+            mainMenu.quit = 0
+            beginPause: "Activity already exists"
+                comment: "The activity """ +  mainMenu.actTitle$[.i] +
+                    ... """ already exists"
+            endPause: "Continue", 1, 1
         endif
     endfor
 
@@ -41,7 +43,10 @@ procedure updateActivities
     if not fileReadable(.activityProc$)
         .iAmValid = 0
         mainMenu.quit = 0
-        pauseScript: "The folder you specified contains no valid activities."
+        beginPause:"Cancelled / Invalid folder"
+        comment: "Action cancelled OR no valid activities in folder."
+        endPause: "Continue", 1, 1
+
         endif
     endif
 
@@ -68,6 +73,10 @@ procedure updateActivities
             removeObject: .curFile
         endfor
         removeObject: .fileList
-        pauseScript: "Re-start Praat for the changes to take effect."
+        mainMenu.quit = 0
+        beginPause:"Please restart"
+        comment: "Re-start Praat for the changes to take effect."
+        endPause: "Continue", 1, 1
+
     endif
 endproc
