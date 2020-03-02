@@ -69,7 +69,7 @@ appendFileLine: finalScript$, ""
 appendFileLine: finalScript$, "# include the following procs"
 appendFileLine: finalScript$, "include ../procs/menus.proc"
 appendFileLine: finalScript$, "include ../procs/updateActivities.proc"
-appendFileLine: finalScript$, "include ../procs/showHideAns.proc"
+appendFileLine: finalScript$, "include ../procs/playShowHide.proc"
 
 # append activity procedure scripts
 for i to validActs

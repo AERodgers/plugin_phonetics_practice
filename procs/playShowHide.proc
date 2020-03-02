@@ -19,7 +19,7 @@
 #  If there is a tier called  "answers" or "comments" it is automatically
 #  hidden by default.
 
-procedure playShowHide: .directory$
+procedure playShowHide: .directory$, .listenRepeat
     ### GET LIST OF SOUND AND TEXT GRID FILES
     # get list of wave files
     .soundListTemp = Create Strings as file list:
@@ -51,6 +51,7 @@ procedure playShowHide: .directory$
     .showAns = 0
     .showAns$[1] = "Show answer"
     .showAns$[2] = "Hide answer"
+    .listenedAlready = 0
 
 
    # main loop
@@ -68,6 +69,11 @@ procedure playShowHide: .directory$
 
             .textgrid = Read from file: .directory$ + .soundName$ + ".TextGrid"
 
+            if .listenRepeat and not .listenedAlready
+                @listenRepeat: .soundObject
+                .listenedAlready = 1
+            endif
+
             # remove tiers for temporary textgrid, if any have been specified
             if not .showAns
                 @temp_textgrid: "playShowHide.textgrid", "answer comments"
@@ -82,7 +88,7 @@ procedure playShowHide: .directory$
             # pause to let user edit the text gtid
             beginPause: "Showing " + .soundName$
             comment: "Play, listen, and write your transcription."
-            .editChoice = endPause: .showAns$[.showAns + 1], "<", ">", 4
+            .editChoice = endPause: .showAns$[.showAns + 1], "<", ">", 4, 1
 
             # Merged textgrid if necessary, and save it.
             if not .showAns
@@ -94,12 +100,15 @@ procedure playShowHide: .directory$
             # Process user input.
             if .editChoice = 3
                 .showAns = 0
+                .listenedAlready = 0
             elsif .editChoice = 2  and .curSound > 1
                 .curSound -= 2
                 .showAns = 0
+                .listenedAlready = 0
             else
                 .curSound -= 1
                 .showAns = 1 - .showAns
+                .listenedAlready = 1
             endif
 
             # Remove current sound object and textgrid.
@@ -115,6 +124,22 @@ procedure playShowHide: .directory$
 endproc
 
 # Dependent Procedures --------------------------------------------------------v
+procedure listenRepeat: .soundObject
+    .plxRepeat = 1
+    selectObject: .soundObject
+    .soundName$ = selected$("Sound")
+    while .plxRepeat
+        beginPause: "Sound: " + .soundName$
+        comment: "Listen to the phrase"
+        .plxRepeat = endPause: "Play", "Next", 1, 1
+        .plxRepeat = -.plxRepeat + 2
+        if .plxRepeat
+            selectObject: .soundObject
+            Play
+        endif
+    endwhile
+endproc
+
 procedure temp_textgrid: .original$, .delete_list$
     # convert .delete_list$ to array of tiers to delete
     # (.delete$[.n] with .n elements)

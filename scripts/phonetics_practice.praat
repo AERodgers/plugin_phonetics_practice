@@ -39,6 +39,6 @@ appendInfoLine: "Keep an eye on it!"
 # include the following procs
 include ../procs/menus.proc
 include ../procs/updateActivities.proc
-include ../procs/showHideAns.proc
+include ../procs/playShowHide.proc
 include ../activities/sawtooth/activity.proc
 include ../activities/week_05_transcription/activity.proc

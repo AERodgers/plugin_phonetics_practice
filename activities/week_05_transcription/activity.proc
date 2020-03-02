@@ -13,6 +13,7 @@
 
 
 procedure week_05_transcription
-    @showHideAns: "../activities/week_05_transcription/"
+    .pauseToListen =  1
+    @playShowHide: "../activities/week_05_transcription/", .pauseToListen
     pauseScript: "You have looked at all the sound files."
 endproc
