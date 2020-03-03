@@ -45,6 +45,7 @@ procedure mainMenu: .activities
             .quit = 1
             beginPause: "Bye bye"
             endPause: "Bye bye", 1, 1
+            writeInfoLine()
        elsif edit_choice = 2
             .quit = 1
             @updateActivities
