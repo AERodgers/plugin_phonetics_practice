@@ -23,7 +23,9 @@ procedure mainMenu: .activities
         endif
 
         beginPause: "Anto's phonetic practice"
-            choose_activity = 1
+            if !variableExists("choose_activity")
+                choose_activity = 1
+            endif
             comment: "Main menu"
             comment: "What do you want to do?"
                 if .activities > 0

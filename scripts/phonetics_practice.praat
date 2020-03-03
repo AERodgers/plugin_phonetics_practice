@@ -37,10 +37,9 @@ appendInfoLine: "Keep an eye on it!"
 @mainMenu: validActs
 
 # Base Procedures -------------------------------------------------------------v
-include ../procs/changeIni.proc
-include ../procs/changeIniShow.proc
 include ../procs/menus.proc
 include ../procs/playShowHide.proc
+include ../procs/textgridManagement.proc
 include ../procs/updateActivities.proc
 # -----------------------------------------------------------------------------v^
 

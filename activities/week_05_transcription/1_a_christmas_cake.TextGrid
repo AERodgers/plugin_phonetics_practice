@@ -11,21 +11,17 @@ item []:
         name = "orthography" 
         xmin = 0 
         xmax = 1.1395831599188149 
-        intervals: size = 4 
+        intervals: size = 3 
         intervals [1]:
             xmin = 0 
             xmax = 0.06206579718570418 
             text = "" 
         intervals [2]:
             xmin = 0.06206579718570418 
-            xmax = 0.9465606069225573 
-            text = "A christmas cake" 
+            xmax = 1.0800550816515166 
+            text = "A Christmas cake" 
         intervals [3]:
-            xmin = 0.9465606069225573 
-            xmax = 1.0911139657954085 
-            text = "-" 
-        intervals [4]:
-            xmin = 1.0911139657954085 
+            xmin = 1.0800550816515166 
             xmax = 1.1395831599188149 
             text = "" 
     item [2]:
@@ -43,7 +39,7 @@ item []:
         name = "answer" 
         xmin = 0 
         xmax = 1.1395831599188149 
-        intervals: size = 16 
+        intervals: size = 13 
         intervals [1]:
             xmin = 0 
             xmax = 0.06206579718570418 
@@ -58,54 +54,42 @@ item []:
             text = "k" 
         intervals [4]:
             xmin = 0.18801327818383215 
-            xmax = 0.2180689270583854 
-            text = "\^h" 
+            xmax = 0.27006948529229874 
+            text = "\rt\0v" 
         intervals [5]:
-            xmin = 0.2180689270583854 
-            xmax = 0.28390511030740684 
-            text = "\rt\0v\li\rt" 
-        intervals [6]:
-            xmin = 0.28390511030740684 
-            xmax = 0.32040125536936437 
+            xmin = 0.27006948529229874 
+            xmax = 0.3103386555658394 
             text = "\ic" 
-        intervals [7]:
-            xmin = 0.32040125536936437 
-            xmax = 0.43132091193021566 
+        intervals [6]:
+            xmin = 0.3103386555658394 
+            xmax = 0.44610328677377653 
             text = "s" 
-        intervals [8]:
-            xmin = 0.43132091193021566 
+        intervals [7]:
+            xmin = 0.44610328677377653 
             xmax = 0.49214782036681154 
-            text = "m\li\0vm" 
-        intervals [9]:
+            text = "m" 
+        intervals [8]:
             xmin = 0.49214782036681154 
             xmax = 0.5207722478663861 
             text = "\sw" 
-        intervals [10]:
+        intervals [9]:
             xmin = 0.5207722478663861 
             xmax = 0.6095079731150671 
             text = "s" 
-        intervals [11]:
+        intervals [10]:
             xmin = 0.6095079731150671 
             xmax = 0.7240056831133652 
             text = "k\^h" 
-        intervals [12]:
+        intervals [11]:
             xmin = 0.7240056831133652 
             xmax = 0.8492375534240039 
             text = "e\ic" 
-        intervals [13]:
+        intervals [12]:
             xmin = 0.8492375534240039 
-            xmax = 0.9272391183603445 
-            text = "k" 
-        intervals [14]:
-            xmin = 0.9272391183603445 
-            xmax = 0.9465606069225573 
-            text = "\^h" 
-        intervals [15]:
-            xmin = 0.9465606069225573 
-            xmax = 1.0911139657954085 
-            text = "breath!" 
-        intervals [16]:
-            xmin = 1.0911139657954085 
+            xmax = 1.0800550816515166 
+            text = "k\^h" 
+        intervals [13]:
+            xmin = 1.0800550816515166 
             xmax = 1.1395831599188149 
             text = "" 
     item [4]:
@@ -113,32 +97,28 @@ item []:
         name = "comments" 
         xmin = 0 
         xmax = 1.1395831599188149 
-        intervals: size = 7 
+        intervals: size = 6 
         intervals [1]:
             xmin = 0 
             xmax = 0.18801327818383215 
             text = "" 
         intervals [2]:
             xmin = 0.18801327818383215 
-            xmax = 0.2180689270583854 
-            text = "?" 
-        intervals [3]:
-            xmin = 0.2180689270583854 
             xmax = 0.49214782036681154 
-            text = "see extIPA for partial devoicing alternative " 
-        intervals [4]:
+            text = "[\rt\0v] only partially devoiced (see extIPA for means of more precise transcription)" 
+        intervals [3]:
             xmin = 0.49214782036681154 
             xmax = 0.7240056831133652 
             text = "" 
-        intervals [5]:
+        intervals [4]:
             xmin = 0.7240056831133652 
             xmax = 0.8492375534240039 
-            text = "very short. /e/ slightly lowered" 
-        intervals [6]:
+            text = "/e/ slightly lowered" 
+        intervals [5]:
             xmin = 0.8492375534240039 
-            xmax = 0.9465606069225573 
-            text = "" 
-        intervals [7]:
-            xmin = 0.9465606069225573 
+            xmax = 1.0800550816515166 
+            text = "/\^h/ may not be so long" 
+        intervals [6]:
+            xmin = 1.0800550816515166 
             xmax = 1.1395831599188149 
             text = "" 

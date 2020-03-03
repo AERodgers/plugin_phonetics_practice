@@ -121,7 +121,7 @@ item []:
         intervals [6]:
             xmin = 1.2123166804350807 
             xmax = 1.516700412056309 
-            text = "glottal closure before stop" 
+            text = "glottal closure before stop [t\^h] also okay." 
         intervals [7]:
             xmin = 1.516700412056309 
             xmax = 1.9466653325010839 
