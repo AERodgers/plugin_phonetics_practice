@@ -47,15 +47,15 @@ procedure week_05_transcription
     comment: ""
     comment: "After writing your transcription, click on [Next]."
     comment: ""
+    comment: "If you see a warning about phonetic fonts, don't panic. Just " +
+        ...  "click [OK]."
+    comment: ""
     comment: "You will be able to inspect the spectrogram for the phrase. " +
          ... "This might be useful for checking some of"
     comment: "your impressions."
     comment: "If you wish, you can use the ""mySegmentation"" tier to " +
          ... "segment and write your transcription (but this is"
     comment: "not necessary)."
-    comment: ""
-    comment: "If you see a warning about phonetic scripts, don't panic. Just " +
-    comment: "click [OK].""
     comment: ""
     comment: "Click on [show answer] to see my segmentation, transcription, " +
          ... "and comments."
