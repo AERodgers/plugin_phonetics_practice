@@ -53,6 +53,10 @@ procedure week_05_transcription
     comment: "If you wish, you can use the ""mySegmentation"" tier to " +
          ... "segment and write your transcription (but this is"
     comment: "not necessary)."
+    comment: ""
+    comment: "If you see a warning about phonetic scripts, don't panic. Just " +
+    comment: "click [OK].""
+    comment: ""
     comment: "Click on [show answer] to see my segmentation, transcription, " +
          ... "and comments."
     comment: "As always, if you have any queries or correction, do let me know."

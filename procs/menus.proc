@@ -63,7 +63,8 @@ procedure listenContinue: .heading$, .sound
     if edit_choice = 1
         selectObject: .sound
         Play
-        pause
+        beginPause: "Continue"
+        edit_choice = endPause: "Next", 1, 1
     endif
 endproc
 
@@ -74,7 +75,7 @@ procedure listenRepeat: .soundObject, .text$
     while .plxRepeat
         beginPause: "Sound: " + .soundName$
         comment: "Listen to the phrase:"
-        comment: .text$
+        comment: """" + .text$ + """"
         .plxRepeat = endPause: "Play", "Next", 1, 1
         .plxRepeat = -.plxRepeat + 2
         if .plxRepeat

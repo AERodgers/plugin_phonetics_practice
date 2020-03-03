@@ -72,7 +72,7 @@ procedure playShowHide: .directory$, .listenRepeat
             if .listenRepeat and not .listenedAlready
                 selectObject: .textgrid
                 .text$ = Get label of interval: 1, 2
-                @listenRepeat: .soundObject, .text$
+                @listenRepeat: .soundObject, string$(.curSound) + ". " + .text$
                 .listenedAlready = 1
             endif
 
