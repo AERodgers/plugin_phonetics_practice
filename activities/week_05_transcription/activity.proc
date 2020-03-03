@@ -62,5 +62,5 @@ procedure week_05_transcription
     @playShowHide: "../activities/week_05_transcription/", .pauseToListen
     beginPause:"All done"
     comment: "You have looked at all the sound files."
-    endPause: "Continue", 1, 1
+    endPause: "Return to main menu", 1, 1
 endproc

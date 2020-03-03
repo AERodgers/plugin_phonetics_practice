@@ -70,7 +70,9 @@ procedure playShowHide: .directory$, .listenRepeat
             .textgrid = Read from file: .directory$ + .soundName$ + ".TextGrid"
 
             if .listenRepeat and not .listenedAlready
-                @listenRepeat: .soundObject
+                selectObject: .textgrid
+                .text$ = Get label of interval: 1, 2
+                @listenRepeat: .soundObject, .text$
                 .listenedAlready = 1
             endif
 
@@ -88,7 +90,8 @@ procedure playShowHide: .directory$, .listenRepeat
             # pause to let user edit the text grid
             beginPause: "Showing " + .soundName$
             comment: "Play, listen, and write your transcription."
-            .editChoice = endPause: .showAns$[.showAns + 1], "<", ">", 4, 1
+            .editChoice = endPause: .showAns$[.showAns + 1],
+                                ... "< Prev", "Next >", 4, 1
 
             # Merged textgrid if necessary, and save it.
             if not .showAns

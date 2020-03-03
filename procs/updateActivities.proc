@@ -11,7 +11,7 @@ procedure updateActivities
         beginPause: "Anto's phonetic practice: Update activities"
             comment: "Paste or type in the folder address"
             sentence: "New activity folder", ""
-        endPause: "Cancel", "Continue", 2
+        endPause: "Cancel", "Next", 2
         .activityDir$ = new_activity_folder$
     endif
 
@@ -35,7 +35,7 @@ procedure updateActivities
             beginPause: "Activity already exists"
                 comment: "The activity """ +  mainMenu.actTitle$[.i] +
                     ... """ already exists"
-            endPause: "Continue", 1, 1
+            endPause: "Next", 1, 1
         endif
     endfor
 
@@ -45,7 +45,7 @@ procedure updateActivities
         mainMenu.quit = 0
         beginPause:"Cancelled / Invalid folder"
         comment: "Action cancelled OR no valid activities in folder."
-        endPause: "Continue", 1, 1
+        endPause: "Next", 1, 1
 
         endif
     endif
@@ -76,7 +76,7 @@ procedure updateActivities
         mainMenu.quit = 0
         beginPause:"Please restart"
         comment: "Re-start Praat for the changes to take effect."
-        endPause: "Continue", 1, 1
+        endPause: "Next", 1, 1
 
     endif
 endproc
