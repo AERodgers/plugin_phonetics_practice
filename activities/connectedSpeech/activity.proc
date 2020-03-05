@@ -1,0 +1,153 @@
+#metadataValid
+#Connected Speech Practice
+#connectedSpeech
+
+# Connected Speech: "The Grandfather passage"
+# =======================================
+# Written for Praat 6.0.40 or later
+#
+# script by Antoin Eoin Rodgers
+# rodgeran@tcd.ie
+# Phonetics and speech Laboratory, Trinity College Dublin
+# Feb 17, 2020
+#
+# This script was written to exemplify how complex waveforms can be understood
+# as being composed of the sum of a series sinusoidal waveforms.
+
+# main procedure
+procedure connectedSpeech
+    l$ = newline$
+    # NB: create a less ridiculous "@instructions" procedure!
+    writeInfoLine:  "Connected Speech: ""The Grandfather passage"""  +
+    ... l$ + "-------------------------------------------" +
+    ... l$ + "You will see and hear an example of the  ""The Grandfather" +
+    ... l$ + "Passage"" broken into short chunks." + l$ +
+    ... l$ + "This will include a spectrogram and textgrid of each chunk." +
+    ... l$ + "* The first tier of the textgrid shows the orthography." +
+    ... l$ + "* The second tier shows the citation form of each word." +
+    ... l$ + "  Note that this would sound very unnatural as connected speech!" +
+    ... l$ + "* The third tier shows my transcription, which focuses on connected" +
+    ... l$ + "  speech features and instances of /t/ lenition." +
+    ... l$ + "  I have not done an allophonic transcription of every sentence," +
+    ... l$ + "  but only included features relevant to the transcription task." +
+    ... l$ + "* The final tier contains comments." + l$ +
+    ... l$ + "As always, let me know if you have any queries or corrections ."
+
+    beginPause: "Instructions"
+    comment: "Connected Speech: ""The Grandfather passage"""
+    comment: "-------------------------------------------"
+    comment: "You will see and hear an example of the  ""The Grandfather"
+    comment: "Passage"" broken into short chunks."
+    comment: "You will see a spectrogram and textgrid."
+    comment: "The first tier of the textgrid shows the orthography."
+    comment: "The second tier shows the citation form of each word."
+    comment: "Note that this would sound very unnatural as connected speech!"
+    comment: "The third tier shows my transcription, which focuses on connected"
+    comment: "speech features and instances of /t/ lenition."
+    comment: "I have not done an allophonic transcription of every sentence,"
+    comment: "but only included features relevant to the transcription task."
+    comment: "The final tier contains comments."
+    comment: ""
+    comment: "As always, let me know if you have any queries or corrections ."
+    endPause: "Begin", 1, 1
+
+    @peruse: "../activities/connectedSpeech/"
+endproc
+
+procedure peruse: .directory$
+    .outputTable = Create Table with column names: "table", 0, "ortho citation conn comm"
+    ### GET LIST OF SOUND AND TEXT GRID FILES
+    # get list of wave files
+    .soundListTemp = Create Strings as file list:
+        ... "fileList",
+        ... .directory$ + "*.wav"
+    .numSounds = Get number of strings
+
+    # get list of file names without suffix
+    Replace all: ".wav", "", 0, "literals"
+    Rename: "sounds"
+    .soundList = selected ()
+    .numSounds = Get number of strings
+    selectObject: .soundListTemp
+    Remove
+
+    # get list of textgrids in target file
+    .textgridFileList = Create Strings as file list:
+        ... "textgrids",
+        ... .directory$ + "*.textgrid"
+    .textgridListTemp1 = selected ()
+    Replace all: ".TextGrid", "", 0, "literals"
+    .textgridListTemp2 = selected ()
+    Rename: "textgrids"
+    .textgridList = To WordList
+    selectObject: .textgridListTemp1
+    plusObject: .textgridListTemp2
+    Remove
+
+
+   # main loop
+    for .curSound to .numSounds
+
+        selectObject: .soundList
+        .soundName$ = Get string: .curSound
+
+        #edit textgrid if it exists
+        selectObject: .textgridList
+        .textgridExists = Has word: .soundName$
+        if .textgridExists
+            .soundObject = Read from file: .directory$ + .soundName$ + ".wav"
+            Scale intensity: 70
+
+            .textgrid = Read from file: .directory$ + .soundName$ + ".TextGrid"
+            .ortho$ = Get label of interval: 1, 1
+            .playMe = 1
+
+            selectObject: .textgrid
+            plusObject: .soundObject
+            Edit
+
+            while .playMe
+                # pause to let user peruse the text grid and sound
+                beginPause: "Showing " + .soundName$
+                comment: "Listen to the sound and have a look at the answers."
+                comment: """'.ortho$'"""
+                .editChoice = endPause: "Quit Activity",
+                    ... "< Prev",
+                    ... "Play",
+                    ... "Next >",
+                    ... 3, 1
+
+
+                # Process user input.
+                if .editChoice = 1
+                    .playMe = 0
+                    .curSound = 1*10^9
+                elsif .editChoice = 2
+                    .curSound -= 2
+                    .playMe = 0
+                elsif .editChoice = 3
+                    selectObject: .soundObject
+                    Play
+                else
+                    .playMe = 0
+                endif
+            endwhile
+
+            # avoid error in edit choice 2
+            if .curSound < 0
+                .curSound = 0
+            endif
+            # Remove current sound object and textgrid.
+            selectObject: .textgrid
+            plusObject: .soundObject
+            Remove
+        endif
+    endfor
+
+    # Remove remaining objects.
+    selectObject: .soundList
+    plusObject: .textgridList
+    Remove
+
+
+endproc
