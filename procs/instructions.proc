@@ -1,0 +1,79 @@
+
+
+#@instructions: "myText$", instructions$, 80, 0
+#@instructions: "myComments$", instructions$, 100, 0
+#writeInfoLine: myText$
+#beginPause: "Pause"
+#for i to instructions.lines
+#    comment: instructions.lines$[i]
+#endfor
+#myChoice = endPause: "end", 1, 1
+
+procedure instructions: .output$, .targetFile$, .lineWidth, .isComment
+    .strings = Read Strings from raw text file: .targetFile$
+    .numStrings = Get number of strings
+    '.output$' = ""
+    .lines = 0
+
+    for .curString to .numStrings
+        .curString$ = Get string: .curString
+        .curString$ = replace$(.curString$, tab$, "    ", 0)
+        .isTab = startsWith (.curString$, "    ")
+        .isStar = startsWith (.curString$, "  * ")
+
+        # decide content of first line start and runover lines
+        if .isTab or .isStar
+            .runoverStart$ = "    "
+            .firstStart$ = left$(.curString$, 4)
+            .curString$ = mid$(.curString$, 5, length(.curString$) - 4)
+        else
+            .runoverStart$ = ""
+            .firstStart$ = ""
+        endif
+
+
+        if .runoverStart$ != ""
+            .curMaxLine = .lineWidth - 4
+        else
+            .curMaxLine = .lineWidth
+        endif
+
+        .curText$ = .curString$
+        .endOfLine = length(.curText$)
+        .curStart$ =  .firstStart$
+
+        if '.output$' = ""
+            .nl$ = ""
+        else
+            .nl$ = newline$
+        endif
+
+        while .endOfLine > .lineWidth
+
+            .curLine$ = left$(.curText$, .curMaxLine)
+            .lastSpace = rindex(.curLine$, " ")
+            .curLine$ = left$(.curText$, .lastSpace - 1)
+
+            '.output$' = '.output$' + .nl$ + .curStart$ + .curLine$
+            .lines +=1
+            .lines$[.lines] = .curStart$ + .curLine$
+            .curText$ = mid$(
+                         ... .curText$,
+                         ... .lastSpace + 1,
+                         ... length(.curString$) - .lastSpace
+                         ... )
+            .curStart$ = .runoverStart$
+            .endOfLine = length(.curText$)
+
+        endwhile
+
+        if .endOfLine > 0
+            '.output$' = '.output$' + .nl$ + .curStart$ + .curText$
+            .lines +=1
+            .lines$[.lines] = .curStart$ + .curText$
+        endif
+    endfor
+
+    removeObject: .strings
+
+endproc

@@ -16,39 +16,14 @@
 
 # main procedure
 procedure connectedSpeech
-    l$ = newline$
-    # NB: create a less ridiculous "@instructions" procedure!
-    writeInfoLine:  "Connected Speech: ""The Grandfather passage"""  +
-    ... l$ + "-------------------------------------------" +
-    ... l$ + "You will see and hear an example of the  ""The Grandfather" +
-    ... l$ + "Passage"" broken into short chunks." + l$ +
-    ... l$ + "This will include a spectrogram and textgrid of each chunk." +
-    ... l$ + "* The first tier of the textgrid shows the orthography." +
-    ... l$ + "* The second tier shows the citation form of each word." +
-    ... l$ + "  Note that this would sound very unnatural as connected speech!" +
-    ... l$ + "* The third tier shows my transcription, which focuses on connected" +
-    ... l$ + "  speech features and instances of /t/ lenition." +
-    ... l$ + "  I have not done an allophonic transcription of every sentence," +
-    ... l$ + "  but only included features relevant to the transcription task." +
-    ... l$ + "* The final tier contains comments." + l$ +
-    ... l$ + "As always, let me know if you have any queries or corrections ."
+    .instructions$ = "../activities/connectedSpeech/instructions.txt"
+    @instructions: "connectedSpeech.text$", .instructions$, 80, 0
+    @instructions: "connectedSpeech.comments$", .instructions$, 100, 0
 
     beginPause: "Instructions"
-    comment: "Connected Speech: ""The Grandfather passage"""
-    comment: "-------------------------------------------"
-    comment: "You will see and hear an example of the  ""The Grandfather"
-    comment: "Passage"" broken into short chunks."
-    comment: "You will see a spectrogram and textgrid."
-    comment: "The first tier of the textgrid shows the orthography."
-    comment: "The second tier shows the citation form of each word."
-    comment: "Note that this would sound very unnatural as connected speech!"
-    comment: "The third tier shows my transcription, which focuses on connected"
-    comment: "speech features and instances of /t/ lenition."
-    comment: "I have not done an allophonic transcription of every sentence,"
-    comment: "but only included features relevant to the transcription task."
-    comment: "The final tier contains comments."
-    comment: ""
-    comment: "As always, let me know if you have any queries or corrections ."
+    for .i to instructions.lines
+        comment: instructions.lines$[.i]
+    endfor
     endPause: "Begin", 1, 1
 
     @peruse: "../activities/connectedSpeech/"
@@ -147,6 +122,7 @@ procedure peruse: .directory$
     # Remove remaining objects.
     selectObject: .soundList
     plusObject: .textgridList
+    plusObject: .outputTable
     Remove
 
 
