@@ -1,0 +1,13 @@
+Connected Speech: The Grandfather passage
+-----------------------------------------
+You will see and hear an example of the  "The Grandfather Passage" broken into short chunks.
+
+This will include a spectrogram and textgrid of each chunk.
+  * The first tier of the textgrid shows the orthography.
+  * The second tier shows the citation form of each word.
+    Note that this would sound very unnatural as connected speech!
+  * The third tier shows my transcription, which focuses on connected speech features and instances of /t/ lenition."
+    I have not done an allophonic transcription of every sentence, but only included features relevant to the transcription task.
+  * The final tier contains comments.
+
+As always, let me know if you have any queries or corrections .
