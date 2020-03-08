@@ -35,18 +35,18 @@ procedure mainMenu: .activities
                     endfor
                 endif
         if .activities > 0
-            edit_choice = endPause: "Exit", "Update Activities", "Run Activity",
+            .menuChoice = endPause: "Exit", "Update Activities", "Run Activity",
                                 ... 3, 1
         else
-            edit_choice = endPause: "Exit", "Update Activities",
+            .menuChoice = endPause: "Exit", "Update Activities",
                                 ... 2, 1
         endif
-        if edit_choice = 1
+        if .menuChoice = 1
             .quit = 1
             beginPause: "Bye bye"
             endPause: "Bye bye", 1, 1
             writeInfoLine()
-       elsif edit_choice = 2
+       elsif .menuChoice = 2
             .quit = 1
             @updateActivities
         else
@@ -59,12 +59,12 @@ endproc
 procedure listenContinue: .heading$, .sound
     beginPause: .heading$
         comment: "What do you want to do?"
-    edit_choice = endPause: "Listen", "Next", 1, 1
-    if edit_choice = 1
+    .menuChoice = endPause: "Listen", "Next", 1, 1
+    if .menuChoice = 1
         selectObject: .sound
         Play
         beginPause: "Continue"
-        edit_choice = endPause: "Next", 1, 1
+        .menuChoice = endPause: "Next", 1, 1
     endif
 endproc
 
@@ -85,18 +85,47 @@ procedure listenRepeat: .soundObject, .text$
     endwhile
 endproc
 
-
 procedure keepClear: .objects#, .text$
     beginPause: "Keep or Clear the objects window"
         comment: "Do you want to keep anything from """ + .text$ + """"
         comment: "Select ""Keep"" if you want to have a wee at them look later."
-    edit_choice = endPause: "Keep", "Remove", 2, 1
+    .menuChoice = endPause: "Keep", "Remove", 2, 1
 
-    if edit_choice = 2
+    if .menuChoice = 2
         selectObject()
         for .i to size(.objects#)
             plusObject: .objects#[.i]
         endfor
         Remove
     endif
+endproc
+
+procedure listenAndChoose: .soundObject, .choices$, .options$, .choices
+    .quit = 0
+    .playMe = 1
+    while .playMe
+        # pause to let user peruse the text grid and sound
+        beginPause: "Listen and Choose"
+        comment: "Listen and choose the best answer."
+
+        choice: .choices$, 1
+            for .i to .choices
+                option: '.options$'[.i]
+            endfor
+        .menuChoice = endPause: "Quit Activity",
+            ... "Listen",
+            ... "Decide",
+            ... 2, 1
+
+        # Process user input.
+        if .menuChoice = 1
+            .playMe = 0
+            .quit = 1
+        elsif .menuChoice = 2
+            selectObject: .soundObject
+            Play
+        else
+            .playMe = 0
+        endif
+    endwhile
 endproc
