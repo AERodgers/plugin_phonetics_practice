@@ -1,0 +1,19 @@
+procedure rightWrong: .output$, .isPositive
+    .ans = randomInteger(1, 5)
+    .pos$[1] = "Well done!"
+    .pos$[2] = "Nice one!"
+    .pos$[3] = "That's right."
+    .pos$[4] = "Good job!"
+    .pos$[5] = "Great!"
+    .neg$[1] = "Sorry, that isn't right."
+    .neg$[2] = "Wrong answer, I'm afraid."
+    .neg$[3] = "That wasn't it."
+    .neg$[4] = "That isn't right, but don't give up!"
+    .neg$[5] = "Sorry, that's the wrong answer."
+
+    if .isPositive
+        '.output$' = .pos$[.ans]
+    else
+        '.output$' = .neg$[.ans]
+    endif
+endproc
