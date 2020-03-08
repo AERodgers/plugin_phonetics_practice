@@ -1,0 +1,34 @@
+# create a vector of numbers where first n elements are fixed .training# items
+# and remaining elements are .guesses# presented in a random order.
+
+procedure randomOrder: .training#, .guesses#
+
+    .trainingSize = size(.training#)
+    .guessesSize = size(.guesses#)
+    .list# = zero#(.guessesSize + .trainingSize)
+
+    for .i to .trainingSize
+        .list#[.i] = .training#[.i]
+    endfor
+
+    for .i to (.guessesSize)
+
+        .remaining = size(.guesses#)
+        .rando = randomInteger(1, .remaining)
+        .value = .guesses#[.rando]
+        .list#[.i + .trainingSize] = .value
+        .tempGuesses# = zero#(.remaining - 1)
+
+        for .j to .rando - 1
+            .tempGuesses#[.j] = .guesses#[.j]
+        endfor
+
+        for .j from .rando to .remaining - 1
+            .tempGuesses#[.j] = .guesses#[.j + 1]
+        endfor
+
+        .guesses# = .tempGuesses#
+
+    endfor
+
+endproc
