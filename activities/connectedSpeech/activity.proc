@@ -17,9 +17,10 @@
 # main procedure
 procedure connectedSpeech
     .instructions$ = "../activities/connectedSpeech/instructions.txt"
-    @instructions: "connectedSpeech.text$", .instructions$, 80, 0
-    @instructions: "connectedSpeech.comments$", .instructions$, 100, 0
+    @instructions: "connectedSpeech.text$", .instructions$, 80
+    writeInfoLine: .text$
 
+    @instructions: "connectedSpeech.comments$", .instructions$, 100
     beginPause: "Instructions"
     for .i to instructions.lines
         comment: instructions.lines$[.i]
@@ -91,7 +92,6 @@ procedure peruse: .directory$
                     ... "Play",
                     ... "Next >",
                     ... 3, 1
-
 
                 # Process user input.
                 if .editChoice = 1

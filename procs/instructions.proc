@@ -9,7 +9,7 @@
 #endfor
 #myChoice = endPause: "end", 1, 1
 
-procedure instructions: .output$, .targetFile$, .lineWidth, .isComment
+procedure instructions: .output$, .targetFile$, .lineWidth
     .strings = Read Strings from raw text file: .targetFile$
     .numStrings = Get number of strings
     '.output$' = ""
@@ -38,6 +38,9 @@ procedure instructions: .output$, .targetFile$, .lineWidth, .isComment
             .curMaxLine = .lineWidth
         endif
 
+        if .curString$ = ""
+            .curString$ = "   "
+        endif
         .curText$ = .curString$
         .endOfLine = length(.curText$)
         .curStart$ =  .firstStart$
