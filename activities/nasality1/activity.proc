@@ -1,0 +1,130 @@
+#metadataValid
+#Nasality Guessing Game
+#nasality1
+
+# Nasal or Denasal
+# ================
+# Written for Praat 6.0.40 or later
+#
+# script by Antoin Eoin Rodgers
+# rodgeran@tcd.ie
+# Phonetics and speech Laboratory, Trinity College Dublin
+# Feb 17, 2020
+#
+# This script was written to help students distinguish between nasalised /
+# hypernasal speech and hyponasalised / denasal speech.
+
+# main procedure
+procedure nasality1
+    .score = 0
+    .answered = 0
+    .instructions$ = "../activities/nasality1/instructions.txt"
+    @instructions: "nasality1.text$", .instructions$, 72
+    writeInfoLine: .text$
+    @instructions: "nasality1.comments$", .instructions$, 100
+    beginPause: "Instructions"
+    for .i to instructions.lines
+        comment: instructions.lines$[.i]
+    endfor
+    endPause: "Begin", 1, 1
+
+    .soundList = Create Strings as file list:
+        ... "fileList",
+        ... "../activities/nasality1/" + "*.wav"
+    .numSounds = Get number of strings
+
+    for .i to .numSounds
+        .sound$[.i] = Get string: .i
+        .sound$[.i] = replace$(.sound$[.i], ".wav", "", 1)
+    endfor
+    removeObject: .soundList
+
+    # these vectors should be generalisable (fix later)
+    .answers# = {3, 2, 2, 3 ,1, 2, 2}
+    .training# = {5, 4, 3}
+    .stimuli# = {1, 2, 3, 4, 6, 7, 1, 2, 3, 4, 6, 7}
+
+    @randomOrder: .training#, .stimuli#
+
+    .choice$ = "Answer"
+    .option$[1] = "modal"
+    .option$[2] = "nasalised / hypernasal"
+    .option$[3] = "hyponasal / denasal"
+
+    for .i to size(randomOrder.list#)
+        .curSound = Read from file: "../activities/nasality1/" +
+                ... .sound$[randomOrder.list#[.i]] + ".wav"
+        Rename: "sound"
+
+        @listenAndChoose: .curSound, .choice$, "nasality1.option$", 3
+        .quit = listenAndChoose.quit
+
+        if not .quit
+            # check answer and current score
+            .correct = (answer == .answers#[randomOrder.list#[.i]])
+            .score += .correct
+            .answered += 1
+            @rightWrong: "nasality1.comment$", .correct
+
+            # Get and give feedback
+            @instructions: "nasality1.feedback$",
+                       ... "../activities/nasality1/" +
+                       ... .sound$[randomOrder.list#[.i]] + ".txt",
+                       ... 72
+            writeInfoLine: .text$
+            appendInfoLine: newline$,
+                ... "-------------------",
+                ... newline$,
+                ... .comment$,
+                ... newline$,
+                ... newline$,
+                ... .feedback$
+
+            @instructions: "nasality1.feedback$",
+                       ... "../activities/nasality1/" +
+                       ... .sound$[randomOrder.list#[.i]] + ".txt",
+                       ... 100
+            # pause for feedback
+            .playMe = 1
+            while .playMe
+                beginPause: "And the answer is..."
+                    comment: .comment$
+                    for .j to instructions.lines
+                        comment: instructions.lines$[.j]
+                    endfor
+                    comment: ""
+                    comment: "You now have " +
+                        ... string$(.score) +
+                        ... " out of " +
+                        ... string$(.answered)
+                .choice = endPause: "Quit activity", "Listen", "Next", 3, 1
+                if .choice = 1
+                    .quit = 1
+                    .playMe = 0
+                elsif .choice = 2
+                    selectObject: .curSound
+                    Play
+                else
+                    .playMe = 0
+                endif
+            endwhile
+        endif
+
+        removeObject: .curSound
+        if .quit
+            .i = 10^10
+        endif
+    endfor
+
+    # end activity
+    beginPause: "Bye bye"
+        comment: "Your final score is " +
+            ... string$(.score) +
+            ... " out of " +
+            ... string$(.answered)
+        comment: "You can repeat this activity."
+        comment: "The first three items will alway be the same."
+        comment: "However, the rest will be presented in a random order."
+    .choice = endPause: "Main menu", 1, 1
+
+endproc

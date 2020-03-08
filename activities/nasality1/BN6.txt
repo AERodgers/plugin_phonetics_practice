@@ -1,0 +1,6 @@
+This utterance is NASALISED.
+ 
+Note:
+  * nasalisation of all segments in <bobby>
+  * voiced bilabial plosive /b/ still clearly identifiable
+  * vowels in <nanna> slightly nasalised.

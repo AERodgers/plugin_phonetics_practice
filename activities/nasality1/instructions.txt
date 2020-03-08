@@ -1,0 +1,12 @@
+Nasal Voice Qualities
+---------------------
+You will be presented with a sequence of repetitions of the phrase, "Bobby and Nanna/Nanny".
+
+  * Listen to each repetition, choose the option which best describes the voice quality.
+  * When you are confident in your answer, click [Check].
+    You will get feedback on your answers and some comments about the utterance.
+  * Once you have made 15 guesses, you will be given a score!
+
+Remember, this is not a test. The activity is designed to raise your awareness of the differences between modal, nasalised, hypernasal, hyponasal and denasal speech.
+
+As always, let me know if you have any queries or corrections.
