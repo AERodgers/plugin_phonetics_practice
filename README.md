@@ -1,4 +1,4 @@
-# plugin_phonetics_practice v.0.1
+# plugin_phonetics_practice v.0.2
 An updatable plugin for [Praat](www.praat.org) to help students practise transcription and develop awareness of acoustic phonetics using Praat.
 
 To use this plugin you need to download Praat onto your computer (www.praat.org).
@@ -17,6 +17,10 @@ NOTE: This is the first version of this plugin, which only includes two simple a
 
 * A demonstration of how a complex waveform (sawtooth) can be understood as a combination of component (sinusoidal) parts
 * A connected speech transcription / segmentation task.
+
+V.0.2
+* Added several new activities
+* Added new procedures for feedback, instructions, and a few other things.
 
 I will add more activities over time.
 
