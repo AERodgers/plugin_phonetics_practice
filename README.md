@@ -4,7 +4,7 @@ An updatable plugin for [Praat](www.praat.org) to help students practise transcr
 To use this plugin you need to download Praat onto your computer (www.praat.org).
 
 Then:
-1. Click on the **clone or download** button above followed by **download ZIP**.
+1. Click on the **code** button above followed by **download ZIP**.
 2. Download and unzip the file.
 3. Copy the **plugin_phonetics_practice** folder and *all* its contents into
  the **Praat preferences directory**.
