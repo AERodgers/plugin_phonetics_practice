@@ -5,11 +5,10 @@ To use this plugin you need to download Praat onto your computer (www.praat.org)
 
 Then:
 1. Click on the **code** button above followed by **download ZIP**.
-2. Download and unzip the file.
-3. Copy the **plugin_phonetics_practice** folder and *all* its contents into
- the **Praat preferences directory**.
+2. Download and unzip the folder and all its contents. (On a Windows PC, typically, you can right click and select _**extract all**_.)
+3. Copy the **plugin_phonetics_practice** folder and *all* its contents into the **Praat preferences directory**.
 
-    ([Click on this link](http://www.fon.hum.uva.nl/praat/manual/preferences_directory.html) for guidelines on how to locate this directory on your computer.)
+    ([Click on this link](http://www.fon.hum.uva.nl/praat/manual/preferences_directory.html) for guidelines on how to locate this directory on your computer. Note! Replace "miep" in the examples with your own user name on your computer!)
 
 Once you have installed the plugin, you can access it from the **Praat** menu in the objects window. It will show up as **Anto's Phonetics Practice...**
 
